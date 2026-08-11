@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarun Murali | Network & Systems Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Tarun Murali - Aspiring Network Security Engineer, Linux sysadmin, and cybersecurity enthusiast seeking entry-level Network Engineering roles.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS (for layout utilities) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        netDark: '#080c14',
+                        netCard: '#0f172a',
+                        netCyan: '#06b6d4',
+                        netBlue: '#0ea5e9',
+                        netEmerald: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#080c14] text-slate-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-400">
+
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="/" data-route="/" class="logo-link">
+                <i class="fas fa-network-wired text-cyan-400"></i>
+                <span>tarun@net-core:~$</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-3">
+                <div class="status-badge me-4">
+                    <span class="pulse-dot"></span>
+                    <span>ETH0 UP | 10 Gbps</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="/" data-route="/" class="nav-item active"><i class="fas fa-home me-1"></i> Home</a>
+                    <a href="/projects" data-route="/projects" class="nav-item"><i class="fas fa-code me-1"></i> Projects</a>
+                    <a href="/writeups" data-route="/writeups" class="nav-item"><i class="fas fa-file-code me-1"></i> Writeups</a>
+                    <a href="/blog" data-route="/blog" class="nav-item"><i class="fas fa-newspaper me-1"></i> Blog</a>
+                    <a href="/homelab" data-route="/homelab" class="nav-item"><i class="fas fa-server me-1"></i> Homelab</a>
+                    <a href="/resume" data-route="/resume" class="nav-item"><i class="fas fa-file-alt me-1"></i> Resume</a>
+                    <a href="/social" data-route="/social" class="nav-item"><i class="fas fa-share-alt me-1"></i> Social</a>
+                    <a href="/contact" data-route="/contact" class="nav-item"><i class="fas fa-envelope me-1"></i> Contact</a>
+                </nav>
+            </div>
+            
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+            <a href="/" data-route="/" class="nav-item active"><i class="fas fa-home me-2"></i> Home</a>
+            <a href="/projects" data-route="/projects" class="nav-item"><i class="fas fa-code me-2"></i> Projects</a>
+            <a href="/writeups" data-route="/writeups" class="nav-item"><i class="fas fa-file-code me-2"></i> Writeups</a>
+            <a href="/blog" data-route="/blog" class="nav-item"><i class="fas fa-newspaper me-2"></i> Blog</a>
+            <a href="/homelab" data-route="/homelab" class="nav-item"><i class="fas fa-server me-2"></i> Homelab</a>
+            <a href="/resume" data-route="/resume" class="nav-item"><i class="fas fa-file-alt me-2"></i> Resume</a>
+            <a href="/social" data-route="/social" class="nav-item"><i class="fas fa-share-alt me-2"></i> Social Hub</a>
+            <a href="/contact" data-route="/contact" class="nav-item"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-6">
+        
+        <!-- =================================================================== -->
+        <!-- 1. PAGE: HOME / PORTFOLIO -->
+        <!-- =================================================================== -->
+        <section id="page-home" class="page-view active">
+            <!-- Hero Section -->
+            <div class="py-16 md:py-20 max-w-5xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-medium mb-6">
+                    <i class="fas fa-circle-check text-emerald-400 text-[10px]"></i>
+                    <span>OPEN TO ENTRY-LEVEL NETWORK ENGINEERING ROLES</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                    Building & Hardening Reliable <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400">Digital Infrastructure</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+                    Hi, I'm <strong class="text-white">Tarun Murali</strong>. A passionate Network Engineering fresher, Linux sysadmin, and cybersecurity enthusiast focused on routing, switching, packet analysis, and network defense.
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-center gap-4 mb-14">
+                    <a href="/homelab" data-route="/homelab" class="px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold transition-all shadow-lg shadow-sky-500/25 flex items-center gap-2">
+                        <i class="fas fa-network-wired"></i> Explore Homelab
+                    </a>
+                    <a href="/resume" data-route="/resume" class="px-6 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium transition-all flex items-center gap-2">
+                        <i class="fas fa-file-pdf"></i> View Resume
+                    </a>
+                    <a href="/contact" data-route="/contact" class="px-6 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-cyan-500/40 text-cyan-400 font-medium transition-all flex items-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Get in Touch
+                    </a>
+                </div>
+                
+                <!-- Quick Network Badges -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto text-xs font-mono">
+                    <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300">
+                        <span class="text-sky-400 font-bold block mb-1">CERTIFICATION</span>
+                        CCNA Candidate
+                    </div>
+                    <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300">
+                        <span class="text-cyan-400 font-bold block mb-1">LINUX CORE</span>
+                        Debian / RHEL / Arch
+                    </div>
+                    <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300">
+                        <span class="text-emerald-400 font-bold block mb-1">ANALYSIS</span>
+                        Wireshark & Scapy
+                    </div>
+                    <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300">
+                        <span class="text-indigo-400 font-bold block mb-1">FIREWALLS</span>
+                        pfSense / OPNsense
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Me Section (Split Layout: CLI Terminal Window + Professional Photo Card) -->
+            <div class="max-w-6xl mx-auto mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Left Column: Terminal CLI Window (lg:col-span-7) -->
+                    <div class="lg:col-span-7 animate-slide-left flex flex-col">
+                        <div class="terminal-window h-full flex flex-col justify-between">
+                            <div class="terminal-header">
+                                <div class="terminal-dots">
+                                    <div class="terminal-dot dot-red"></div>
+                                    <div class="terminal-dot dot-yellow"></div>
+                                    <div class="terminal-dot dot-green"></div>
+                                </div>
+                                <div class="terminal-title"><i class="fas fa-terminal me-2"></i>/home/tarun/about.txt - Network Shell</div>
+                                <div class="text-xs text-slate-500 font-mono">bash 5.2</div>
+                            </div>
+                            
+                            <div class="terminal-body flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="prompt-line">
+                                        <span class="text-emerald-400">tarun@net-core</span>:<span class="text-sky-400">~</span>$ cat ./about.txt
+                                    </div>
+                                    
+                                    <!-- FIRST GLANCE PARAGRAPH -->
+                                    <div class="text-slate-200 space-y-4 my-4 leading-relaxed font-sans text-sm md:text-base">
+                                        <p>
+                                            I am an entry-level Network Engineer and Linux enthusiast with a strong interest in network security, enterprise routing & switching, and infrastructure automation. My journey began with experimenting on Linux server administration and dissecting network traffic, which quickly evolved into a dedicated pursuit of building and hardening network environments.
+                                        </p>
+                                        <p>
+                                            I am actively seeking entry-level Network Engineering opportunities where I can leverage my hands-on skills in Cisco Packet Tracer / GNS3 lab design, subnet planning, WireGuard VPN configuration, firewall rulesets (pfSense/OPNsense), and packet inspection to deliver reliable, secure network operations.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- INTERACTIVE CLI QUIRKS -->
+                                <div class="mt-6 pt-4 border-t border-slate-800 font-mono text-sm">
+                                    <div class="text-cyan-400 font-bold mb-2">
+                                        <i class="fas fa-terminal me-2"></i>Interactive CLI Console Mode:
+                                    </div>
+                                    <p class="text-slate-400 text-xs mb-3">Type <code class="text-sky-400 bg-slate-900 px-1 py-0.5 rounded">help</code>, <code class="text-sky-400 bg-slate-900 px-1 py-0.5 rounded">ping 8.8.8.8</code>, <code class="text-sky-400 bg-slate-900 px-1 py-0.5 rounded">show interfaces</code>, <code class="text-sky-400 bg-slate-900 px-1 py-0.5 rounded">cat skills.json</code>, or <code class="text-sky-400 bg-slate-900 px-1 py-0.5 rounded">clear</code> below:</p>
+                                    
+                                    <div id="terminal-output-history" class="space-y-2 max-h-40 overflow-y-auto my-2 text-xs text-slate-300">
+                                        <!-- CLI responses will appear here -->
+                                    </div>
+                                    
+                                    <form id="terminal-cli-form" class="terminal-input-container">
+                                        <span class="text-emerald-400 font-bold text-xs">tarun@net-core:~$</span>
+                                        <input type="text" id="terminal-cli-input" class="terminal-input" placeholder="type 'help' and press Enter..." autocomplete="off">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Professional Profile Photo Card (lg:col-span-5) -->
+                    <div class="lg:col-span-5 animate-slide-right flex flex-col">
+                        <div class="profile-card-frame relative p-5 bg-slate-900/90 border border-slate-800 rounded-xl overflow-hidden shadow-2xl flex-1 flex flex-col justify-between group hover:border-cyan-500/50 transition-all duration-300">
+                            <!-- Online Status Badge Overlay -->
+                            <div class="absolute top-7 right-7 z-10">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-mono font-semibold backdrop-blur-md">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    ONLINE / READY
+                                </span>
+                            </div>
+
+                            <!-- Photo Box Container -->
+                            <div class="relative w-full aspect-square max-h-[340px] mx-auto rounded-lg overflow-hidden border border-slate-800 bg-slate-950 flex items-center justify-center group-hover:border-cyan-500/40 transition-colors">
+                                <!-- Image with Fallback SVG -->
+                                <img id="profile-photo-img" 
+                                     src="resources/profile_photo.jpg" 
+                                     onerror="this.onerror=null; this.src='resources/profile_photo.svg';" 
+                                     alt="Tarun Murali - Professional Photo" 
+                                     class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- Photo Details & Quick Badges -->
+                            <div class="mt-4 pt-3 border-t border-slate-800 text-center font-mono">
+                                <h3 class="text-white font-bold text-lg">Tarun Murali</h3>
+                                <p class="text-sky-400 text-xs font-medium mt-0.5">Entry-Level Network Engineer</p>
+
+                                <div class="mt-4 grid grid-cols-2 gap-2 text-[11px] text-slate-300">
+                                    <div class="p-2 rounded bg-slate-950 border border-slate-800 flex items-center justify-center gap-1.5">
+                                        <i class="fas fa-location-dot text-emerald-400"></i>
+                                        <span>Open to Remote/Onsite</span>
+                                    </div>
+                                    <div class="p-2 rounded bg-slate-950 border border-slate-800 flex items-center justify-center gap-1.5">
+                                        <i class="fas fa-certificate text-cyan-400"></i>
+                                        <span>CCNA Candidate</span>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-slate-500 text-[10px] mt-3">
+                                    💡 Replace <code>resources/profile_photo.jpg</code> with your photo file.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Core Technical Stack & Matrix -->
+            <div class="max-w-5xl mx-auto mb-16">
+                <div class="section-header">
+                    <span class="section-tag">COMPETENCIES</span>
+                    <h2 class="section-title">Technical Skill Matrix</h2>
+                    <p class="section-desc">Practical hands-on domain knowledge in networking, systems administration, and security.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="net-card">
+                        <div class="text-sky-400 text-2xl mb-4"><i class="fas fa-network-wired"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-3">Networking & Protocols</h3>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-sky-400 text-xs"></i> TCP/IP, OSI 7-Layer Model</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-sky-400 text-xs"></i> OSPF, BGP, Static Routing</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-sky-400 text-xs"></i> VLANs, 802.1Q Trunking, STP</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-sky-400 text-xs"></i> IPv4 CIDR Subnetting & IPv6</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-sky-400 text-xs"></i> NAT, DHCP, DNS, IPsec, VPN</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="net-card">
+                        <div class="text-cyan-400 text-2xl mb-4"><i class="fab fa-linux"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-3">Linux & SysAdmin</h3>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-cyan-400 text-xs"></i> Debian, Ubuntu Server, RHEL</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-cyan-400 text-xs"></i> Bash Scripting & Automation</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-cyan-400 text-xs"></i> Systemd, Journalctl, Cron</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-cyan-400 text-xs"></i> Netplan, iproute2, IPTables/NFTables</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-cyan-400 text-xs"></i> SSH Hardening & Key Auth</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="net-card">
+                        <div class="text-emerald-400 text-2xl mb-4"><i class="fas fa-shield-halved"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-3">Security & Tools</h3>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-emerald-400 text-xs"></i> Wireshark & TShark Packet Analysis</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-emerald-400 text-xs"></i> Nmap Network Discovery & Audit</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-emerald-400 text-xs"></i> Python Packet Manipulation (Scapy)</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-emerald-400 text-xs"></i> pfSense / OPNsense ACL Hardening</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-emerald-400 text-xs"></i> Cisco Packet Tracer & GNS3 Labs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 2. PAGE: PROJECTS -->
+        <!-- =================================================================== -->
+        <section id="page-projects" class="page-view">
+            <div class="section-header">
+                <span class="section-tag">PORTFOLIO WORK</span>
+                <h2 class="section-title">Projects</h2>
+                <p class="section-desc">Software applications, network automation tools, and security lab projects built by Tarun Murali.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="filter-bar">
+                    <div class="filter-btn-group" id="project-filter-group">
+                        <button class="filter-btn active" data-filter="all">All Projects</button>
+                        <button class="filter-btn" data-filter="networking">Networking</button>
+                        <button class="filter-btn" data-filter="automation">Automation</button>
+                        <button class="filter-btn" data-filter="security">Security</button>
+                        <button class="filter-btn" data-filter="linux">Linux</button>
+                    </div>
+                    <input type="text" id="project-search-input" class="search-input-box" placeholder="Search projects...">
+                </div>
+                
+                <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic project cards rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 3. PAGE: WRITEUPS -->
+        <!-- =================================================================== -->
+        <section id="page-writeups" class="page-view">
+            <div class="section-header">
+                <span class="section-tag">LAB DOCUMENTATION</span>
+                <h2 class="section-title">CTF & Lab Write-ups</h2>
+                <p class="section-desc">Detailed technical writeups of networking labs, Cisco topologies, Wireshark PCAPs, and TryHackMe security rooms.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="filter-bar">
+                    <div class="filter-btn-group" id="writeup-filter-group">
+                        <button class="filter-btn active" data-filter="all">All Writeups</button>
+                        <button class="filter-btn" data-filter="cisco">Cisco Labs</button>
+                        <button class="filter-btn" data-filter="pcap">PCAP Analysis</button>
+                        <button class="filter-btn" data-filter="thm">TryHackMe</button>
+                    </div>
+                    <input type="text" id="writeup-search-input" class="search-input-box" placeholder="Search writeups...">
+                </div>
+                
+                <div id="writeups-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic writeup cards rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 4. PAGE: BLOG -->
+        <!-- =================================================================== -->
+        <section id="page-blog" class="page-view">
+            <div class="section-header">
+                <span class="section-tag">ARTICLES & KNOWLEDGE BASE</span>
+                <h2 class="section-title">Technical Blog</h2>
+                <p class="section-desc">In-depth guides on networking fundamentals, Linux commands, VPNs, and homelab architecture.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="filter-bar">
+                    <input type="text" id="blog-search-input" class="search-input-box max-w-md mx-auto" placeholder="Search technical articles...">
+                </div>
+                
+                <div id="blog-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic blog cards rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 5. PAGE: RESUME -->
+        <!-- =================================================================== -->
+        <section id="page-resume" class="page-view">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                    <div>
+                        <span class="section-tag">CURRICULUM VITAE</span>
+                        <h2 class="text-3xl font-extrabold text-white">Tarun Murali</h2>
+                        <p class="text-sky-400 font-mono text-sm">Entry-Level Network Engineer / Systems & Security Enthusiast</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button id="download-resume-btn" class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all flex items-center gap-2">
+                            <i class="fas fa-download"></i> Download CV (PDF)
+                        </button>
+                        <button id="print-resume-btn" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium text-sm transition-all flex items-center gap-2">
+                            <i class="fas fa-print"></i> Print View
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="net-card space-y-8 text-slate-200">
+                    <!-- Objective -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-2 mb-3 flex items-center gap-2">
+                            <i class="fas fa-bullseye text-cyan-400"></i> Career Objective
+                        </h3>
+                        <p class="text-sm leading-relaxed text-slate-300">
+                            Detail-oriented Computer Science / Network Engineering fresher seeking an entry-level Network Engineer or Junior Infrastructure Security Engineer role. Eager to leverage strong foundational knowledge of TCP/IP, Cisco routing/switching, Linux system administration, and network troubleshooting to contribute to reliable enterprise network infrastructure.
+                        </p>
+                    </div>
+                    
+                    <!-- Core Competencies -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-2 mb-3 flex items-center gap-2">
+                            <i class="fas fa-layer-group text-sky-400"></i> Core Skills & Capabilities
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+                            <div>
+                                <span class="text-slate-400 block mb-1 font-bold">NETWORKING & PROTOCOLS</span>
+                                <p class="text-slate-300">Cisco IOS, OSPF, BGP, VLANs, 802.1Q, STP, IPv4/IPv6, CIDR Subnetting, NAT, DNS, DHCP, VPN (WireGuard, IPsec)</p>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block mb-1 font-bold">OPERATING SYSTEMS & SYSADMIN</span>
+                                <p class="text-slate-300">Linux (Ubuntu, Debian, RHEL, Arch), Bash Shell Scripting, Systemd, IPTables, NFTables, SSH, Cron, System Hardening</p>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block mb-1 font-bold">TOOLS & UTILITIES</span>
+                                <p class="text-slate-300">Wireshark, TShark, Nmap, Cisco Packet Tracer, GNS3, Scapy, Netmiko, Git, Docker, pfSense / OPNsense</p>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block mb-1 font-bold">LANGUAGES & AUTOMATION</span>
+                                <p class="text-slate-300">Python 3 (Socket, Network APIs), Bash, HTML/CSS/JS, YAML/JSON, Markdown</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Certifications & Pursuits -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-2 mb-3 flex items-center gap-2">
+                            <i class="fas fa-certificate text-emerald-400"></i> Certifications & Pursuits
+                        </h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between items-center bg-slate-900/60 p-3 rounded border border-slate-800">
+                                <div>
+                                    <span class="font-bold text-white block">Cisco Certified Network Associate (CCNA 200-301)</span>
+                                    <span class="text-xs text-slate-400">In Active Preparation / Target Exam Completion</span>
+                                </div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/30">In Progress</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-slate-900/60 p-3 rounded border border-slate-800">
+                                <div>
+                                    <span class="font-bold text-white block">CompTIA Network+ / Security+ Knowledge Foundation</span>
+                                    <span class="text-xs text-slate-400">Self-Directed Study & Practical Hands-on Labs</span>
+                                </div>
+                                <span class="text-xs font-mono text-sky-400 bg-sky-500/10 px-2 py-1 rounded border border-sky-500/30">Completed Labs</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Education -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-2 mb-3 flex items-center gap-2">
+                            <i class="fas fa-graduation-cap text-indigo-400"></i> Education
+                        </h3>
+                        <div class="bg-slate-900/60 p-4 rounded border border-slate-800">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-white">Bachelor of Science / Technology in Computer Science & Engineering</h4>
+                                <span class="text-xs font-mono text-slate-400">Recent Graduate / Fresher</span>
+                            </div>
+                            <p class="text-xs text-slate-400">Key Coursework: Computer Networks, Operating Systems, Information Security, Data Structures, Software Engineering.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 6. PAGE: SOCIAL LINK HUB -->
+        <!-- =================================================================== -->
+        <section id="page-social" class="page-view">
+            <div class="max-w-xl mx-auto text-center">
+                <div class="mb-8">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-sky-500 to-cyan-400 mx-auto flex items-center justify-center text-slate-950 font-black text-3xl shadow-xl shadow-cyan-500/20 mb-4 border-4 border-slate-900 overflow-hidden">
+                        <img src="resources/profile_photo.jpg" onerror="this.onerror=null; this.src='resources/profile_photo.svg';" alt="Tarun Murali" class="w-full h-full object-cover">
+                    </div>
+                    <h2 class="text-2xl font-bold text-white">Tarun Murali</h2>
+                    <p class="text-sky-400 font-mono text-sm">@tarun-murali</p>
+                    <p class="text-slate-400 text-sm mt-2">Aspiring Network Engineer • Linux & Security Enthusiast</p>
+                </div>
+                
+                <div class="space-y-3">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-full p-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-sky-500/50 text-white font-medium transition-all flex items-center justify-between group">
+                        <span class="flex items-center gap-3">
+                            <i class="fab fa-linkedin text-xl text-sky-400"></i>
+                            LinkedIn Profile
+                        </span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-sky-400 transition-colors"></i>
+                    </a>
+                    
+                    <a href="https://github.com" target="_blank" rel="noopener" class="w-full p-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/50 text-white font-medium transition-all flex items-center justify-between group">
+                        <span class="flex items-center gap-3">
+                            <i class="fab fa-github text-xl text-cyan-400"></i>
+                            GitHub Repositories
+                        </span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                    </a>
+                    
+                    <a href="mailto:sudo.tarun@proton.me" class="w-full p-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-emerald-500/50 text-white font-medium transition-all flex items-center justify-between group">
+                        <span class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-xl text-emerald-400"></i>
+                            Email (sudo.tarun@proton.me)
+                        </span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-emerald-400 transition-colors"></i>
+                    </a>
+                    
+                    <a href="https://tryhackme.com" target="_blank" rel="noopener" class="w-full p-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/50 text-white font-medium transition-all flex items-center justify-between group">
+                        <span class="flex items-center gap-3">
+                            <i class="fas fa-flag text-xl text-amber-400"></i>
+                            TryHackMe Profile
+                        </span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-amber-400 transition-colors"></i>
+                    </a>
+                    
+                    <a href="https://x.com" target="_blank" rel="noopener" class="w-full p-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-indigo-500/50 text-white font-medium transition-all flex items-center justify-between group">
+                        <span class="flex items-center gap-3">
+                            <i class="fab fa-x-twitter text-xl text-indigo-400"></i>
+                            X / Twitter
+                        </span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-indigo-400 transition-colors"></i>
+                    </a>
+                </div>
+                
+                <!-- SSH Key & PGP Fingerprint Card -->
+                <div class="mt-8 p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-left font-mono text-xs text-slate-400">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-cyan-400 font-bold"><i class="fas fa-key me-1"></i> SSH Ed25519 Public Key:</span>
+                        <button id="copy-ssh-key-btn" class="text-xs text-slate-400 hover:text-white bg-slate-800 px-2 py-1 rounded">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <code class="block bg-slate-950 p-2 rounded text-[11px] text-slate-300 break-all overflow-x-auto">
+                        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrX60J7wN0tarunmuralinetworkkey
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 7. PAGE: HOMELAB INFRASTRUCTURE -->
+        <!-- =================================================================== -->
+        <section id="page-homelab" class="page-view">
+            <div class="section-header">
+                <span class="section-tag">SELF-HOSTED INFRASTRUCTURE</span>
+                <h2 class="section-title">Homelab & Network Topology</h2>
+                <p class="section-desc">Interactive overview of my home network infrastructure, firewall VLANs, hypervisors, and self-hosted services.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="topology-container mb-8">
+                    <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-800">
+                        <div class="flex items-center gap-2 font-mono text-sm text-cyan-400">
+                            <i class="fas fa-sitemap"></i> Network Topology Diagram
+                        </div>
+                        <div class="text-xs font-mono text-slate-400">
+                            <span class="text-emerald-400 font-bold">● ALL SYSTEMS OPERATIONAL</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-400 text-xs mb-4">Click any node below to inspect hardware specs, IP assignments, VLANs, and active services:</p>
+                    
+                    <!-- Topology Grid Nodes -->
+                    <div class="topology-grid">
+                        <div class="node-card" data-node="router">
+                            <span class="node-badge">192.168.1.1</span>
+                            <div class="node-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div class="node-title">OPNsense Firewall</div>
+                            <div class="node-ip">WAN / Gateway / DNS</div>
+                        </div>
+                        
+                        <div class="node-card" data-node="switch">
+                            <span class="node-badge">192.168.1.2</span>
+                            <div class="node-icon"><i class="fas fa-network-wired"></i></div>
+                            <div class="node-title">L2/L3 Core Switch</div>
+                            <div class="node-ip">VLAN 10/20/30/40</div>
+                        </div>
+                        
+                        <div class="node-card" data-node="proxmox">
+                            <span class="node-badge">192.168.1.100</span>
+                            <div class="node-icon"><i class="fas fa-server"></i></div>
+                            <div class="node-title">Proxmox VE Node</div>
+                            <div class="node-ip">Homelab Hypervisor</div>
+                        </div>
+                        
+                        <div class="node-card" data-node="nas">
+                            <span class="node-badge">192.168.1.150</span>
+                            <div class="node-icon"><i class="fas fa-database"></i></div>
+                            <div class="node-title">TrueNAS / Storage</div>
+                            <div class="node-ip">ZFS RAID Pool</div>
+                        </div>
+                        
+                        <div class="node-card" data-node="pihole">
+                            <span class="node-badge">192.168.1.200</span>
+                            <div class="node-icon"><i class="fab fa-raspberry-pi"></i></div>
+                            <div class="node-title">Pi-hole + WireGuard</div>
+                            <div class="node-ip">DNS Sinkhole & VPN</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VLAN Segmentation Table -->
+                <div class="net-card">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-list-ol text-cyan-400"></i> VLAN Segmentation Matrix
+                    </h3>
+                    <div class="overflow-x-auto font-mono text-xs">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-800 text-slate-400">
+                                    <th class="py-2 px-3">VLAN ID</th>
+                                    <th class="py-2 px-3">NAME</th>
+                                    <th class="py-2 px-3">SUBNET</th>
+                                    <th class="py-2 px-3">PURPOSE / DESCRIPTION</th>
+                                    <th class="py-2 px-3">SECURITY POLICY</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                                <tr>
+                                    <td class="py-2 px-3 text-sky-400 font-bold">VLAN 10</td>
+                                    <td class="py-2 px-3">Management</td>
+                                    <td class="py-2 px-3">192.168.10.0/24</td>
+                                    <td class="py-2 px-3">Switch IPMI, Proxmox Web UI, Router Admin</td>
+                                    <td class="py-2 px-3 text-emerald-400">Strict Auth Only</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 text-cyan-400 font-bold">VLAN 20</td>
+                                    <td class="py-2 px-3">Homelab VMs</td>
+                                    <td class="py-2 px-3">192.168.20.0/24</td>
+                                    <td class="py-2 px-3">Docker Containers, Web Apps, Dev Workstations</td>
+                                    <td class="py-2 px-3 text-sky-400">Local LAN Routable</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 text-amber-400 font-bold">VLAN 30</td>
+                                    <td class="py-2 px-3">IoT Isolated</td>
+                                    <td class="py-2 px-3">192.168.30.0/24</td>
+                                    <td class="py-2 px-3">Smart devices, cameras, streaming appliances</td>
+                                    <td class="py-2 px-3 text-amber-400">No WAN / Blocked LAN</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 text-indigo-400 font-bold">VLAN 40</td>
+                                    <td class="py-2 px-3">Guest Network</td>
+                                    <td class="py-2 px-3">192.168.40.0/24</td>
+                                    <td class="py-2 px-3">Visitor Wi-Fi access</td>
+                                    <td class="py-2 px-3 text-red-400">Isolated Internet Only</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 8. PAGE: CONTACT -->
+        <!-- =================================================================== -->
+        <section id="page-contact" class="page-view">
+            <div class="section-header">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2 class="section-title">Contact</h2>
+                <p class="section-desc">Interested in discussing network engineering opportunities, lab setups, or potential roles? Reach out!</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Contact Info Cards -->
+                <div class="space-y-6">
+                    <div class="net-card">
+                        <div class="text-sky-400 text-xl mb-2"><i class="fas fa-paper-plane"></i></div>
+                        <h3 class="text-base font-bold text-white mb-1">Direct Email</h3>
+                        <p class="text-slate-400 text-xs mb-3">Send me an email anytime for job opportunities or inquiries.</p>
+                        <a href="mailto:sudo.tarun@proton.me" class="text-cyan-400 font-mono text-sm font-bold hover:underline">
+                            sudo.tarun@proton.me
+                        </a>
+                    </div>
+                    
+                    <div class="net-card">
+                        <div class="text-emerald-400 text-xl mb-2"><i class="fas fa-location-dot"></i></div>
+                        <h3 class="text-base font-bold text-white mb-1">Availability & Location</h3>
+                        <p class="text-slate-300 text-sm">
+                            Available for <strong>Remote</strong> and <strong>On-site / Hybrid</strong> Network Engineering roles.
+                        </p>
+                    </div>
+                    
+                    <div class="net-card font-mono text-xs">
+                        <div class="text-cyan-400 font-bold mb-2 flex items-center justify-between">
+                            <span><i class="fas fa-wifi me-1"></i> Network Latency Diagnostic</span>
+                            <span id="ping-status-text" class="text-emerald-400">RTT 0.042 ms</span>
+                        </div>
+                        <div class="bg-slate-950 p-3 rounded text-slate-400 space-y-1">
+                            <div>PING tarun-murali.me (127.0.0.1): 56 data bytes</div>
+                            <div class="text-slate-300">64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.042 ms</div>
+                            <div class="text-emerald-400">--- tarun-murali.me ping statistics --- 0% packet loss</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="net-card">
+                    <h3 class="text-lg font-bold text-white mb-4">Send a Message</h3>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="contact-name" class="block text-xs font-mono text-slate-400 mb-1">YOUR NAME</label>
+                            <input type="text" id="contact-name" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyan-400" placeholder="e.g. Alex Johnson" required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-email" class="block text-xs font-mono text-slate-400 mb-1">EMAIL ADDRESS</label>
+                            <input type="email" id="contact-email" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyan-400" placeholder="e.g. alex@company.com" required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-subject" class="block text-xs font-mono text-slate-400 mb-1">SUBJECT</label>
+                            <input type="text" id="contact-subject" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyan-400" placeholder="Network Engineering Opportunity..." required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-xs font-mono text-slate-400 mb-1">MESSAGE</label>
+                            <textarea id="contact-message" rows="4" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyan-400" placeholder="Hi Tarun, we have an opening for an entry-level Network Engineer..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i> Transmit Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 9. PAGE: UNDER MAINTENANCE -->
+        <!-- =================================================================== -->
+        <section id="page-maintenance" class="page-view">
+            <div class="max-w-3xl mx-auto text-center py-16">
+                <div class="w-20 h-20 rounded-full bg-amber-500/10 border-2 border-amber-500/40 text-amber-400 mx-auto flex items-center justify-center text-3xl mb-6 shadow-lg shadow-amber-500/10">
+                    <i class="fas fa-wrench"></i>
+                </div>
+                
+                <span class="section-tag border-amber-500/30 text-amber-400 bg-amber-500/10 font-mono">STATUS 503 :: SCHEDULED MAINTENANCE</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white my-4">System Scheduled Maintenance</h2>
+                
+                <p id="maintenance-target-name" class="text-slate-300 text-base max-w-xl mx-auto mb-8 leading-relaxed">
+                    This section of the website is currently undergoing scheduled network maintenance and infrastructure upgrades.
+                </p>
+                
+                <div class="net-card font-mono text-xs max-w-lg mx-auto mb-8 text-left bg-slate-900/90 border-slate-800 space-y-2">
+                    <div class="text-amber-400 font-bold border-b border-slate-800 pb-1 flex justify-between">
+                        <span><i class="fas fa-server me-1"></i> MAINTENANCE STATUS LOG</span>
+                        <span>[IN PROGRESS]</span>
+                    </div>
+                    <div class="text-slate-300"><span class="text-slate-500">EVENT:</span> Firmware upgrade & ACL rule re-indexing</div>
+                    <div class="text-slate-300"><span class="text-slate-500">WINDOW:</span> Active Service Window</div>
+                    <div class="text-emerald-400"><span class="text-slate-500">EST. COMPLETE:</span> &lt; 30 minutes</div>
+                </div>
+                
+                <a href="/" data-route="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-sky-500/20">
+                    <i class="fas fa-home"></i> Return to Home
+                </a>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 10. PAGE: UNDER CONSTRUCTION -->
+        <!-- =================================================================== -->
+        <section id="page-construction" class="page-view">
+            <div class="max-w-3xl mx-auto text-center py-16">
+                <div class="w-20 h-20 rounded-full bg-cyan-500/10 border-2 border-cyan-500/40 text-cyan-400 mx-auto flex items-center justify-center text-3xl mb-6 shadow-lg shadow-cyan-500/10">
+                    <i class="fas fa-screwdriver-wrench"></i>
+                </div>
+                
+                <span class="section-tag border-cyan-500/30 text-cyan-400 bg-cyan-500/10 font-mono">STATUS 501 :: UNDER CONSTRUCTION</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white my-4">Network Node Under Construction</h2>
+                
+                <p id="construction-target-name" class="text-slate-300 text-base max-w-xl mx-auto mb-8 leading-relaxed">
+                    This section of the website is currently under active construction and deployment. Check back soon for updates!
+                </p>
+                
+                <div class="net-card font-mono text-xs max-w-lg mx-auto mb-8 text-left bg-slate-900/90 border-slate-800 space-y-3">
+                    <div class="text-cyan-400 font-bold border-b border-slate-800 pb-1 flex justify-between">
+                        <span><i class="fas fa-code-commit me-1"></i> DEPLOYMENT PROGRESS</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="w-full bg-slate-950 rounded-full h-2.5 overflow-hidden border border-slate-800">
+                        <div class="bg-gradient-to-r from-sky-400 to-cyan-400 h-2.5 rounded-full w-3/4 animate-pulse"></div>
+                    </div>
+                    <div class="text-slate-400 text-[11px]">Building custom lab topology components & technical documentation.</div>
+                </div>
+                
+                <a href="/" data-route="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-cyan-500/20">
+                    <i class="fas fa-home"></i> Return to Home
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modals -->
+    <!-- 1. Article / Writeup Reader Modal -->
+    <div id="reader-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="reader-modal-title" class="text-lg font-bold text-white">Document Title</h3>
+                <button id="reader-modal-close" class="modal-close-btn"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div id="reader-modal-body" class="modal-body text-slate-300 text-sm leading-relaxed space-y-4 font-sans">
+                <!-- Content inserted via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Homelab Node Inspector Modal -->
+    <div id="node-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="flex items-center gap-3">
+                    <span id="node-modal-icon" class="text-cyan-400 text-xl"><i class="fas fa-server"></i></span>
+                    <h3 id="node-modal-title" class="text-lg font-bold text-white">Node Details</h3>
+                </div>
+                <button id="node-modal-close" class="modal-close-btn"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div id="node-modal-body" class="modal-body space-y-4 text-sm font-sans">
+                <!-- Node details inserted via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Built by <strong>Tarun Murali</strong> • Network & Infrastructure Portfolio</p>
+        <p class="footer-status">SYSTEM STATUS :: ETH0 LINK UP (10 Gbps) • BGP SESSION ESTABLISHED</p>
+    </footer>
+
+    <!-- Modular ES6 JavaScript Entry Point -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
