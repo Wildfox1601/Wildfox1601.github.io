@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Tarun Murali - Network & Systems Engineer</title>
+    <meta name="description" content="Get in touch with Tarun Murali for entry-level Network Engineering roles and infrastructure inquiries.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        netDark: '#080c14',
+                        netCard: '#0f172a',
+                        netCyan: '#06b6d4',
+                        netBlue: '#0ea5e9',
+                        netEmerald: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="bg-[#080c14] text-slate-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-400">
+
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <i class="fas fa-network-wired text-cyan-400"></i>
+                <span>tarun@net-core:~$</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-3">
+                <div class="status-badge me-4">
+                    <span class="pulse-dot"></span>
+                    <span>ETH0 UP | 10 Gbps</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="/" class="nav-item"><i class="fas fa-home me-1"></i> Home</a>
+                    <a href="/projects" class="nav-item"><i class="fas fa-code me-1"></i> Projects</a>
+                    <a href="/writeups" class="nav-item"><i class="fas fa-file-code me-1"></i> Writeups</a>
+                    <a href="/blog" class="nav-item"><i class="fas fa-newspaper me-1"></i> Blog</a>
+                    <a href="/homelab" class="nav-item"><i class="fas fa-server me-1"></i> Homelab</a>
+                    <a href="/resume" class="nav-item"><i class="fas fa-file-alt me-1"></i> Resume</a>
+                    <a href="/social" class="nav-item"><i class="fas fa-share-alt me-1"></i> Social</a>
+                    <a href="/contact" class="nav-item active"><i class="fas fa-envelope me-1"></i> Contact</a>
+                </nav>
+            </div>
+            
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+            <a href="/" class="nav-item"><i class="fas fa-home me-2"></i> Home</a>
+            <a href="/projects" class="nav-item"><i class="fas fa-code me-2"></i> Projects</a>
+            <a href="/writeups" class="nav-item"><i class="fas fa-file-code me-2"></i> Writeups</a>
+            <a href="/blog" class="nav-item"><i class="fas fa-newspaper me-2"></i> Blog</a>
+            <a href="/homelab" class="nav-item"><i class="fas fa-server me-2"></i> Homelab</a>
+            <a href="/resume" class="nav-item"><i class="fas fa-file-alt me-2"></i> Resume</a>
+            <a href="/social" class="nav-item"><i class="fas fa-share-alt me-2"></i> Social Hub</a>
+            <a href="/contact" class="nav-item active"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-6 pt-10">
+        
+        <!-- CONTACT SECTION -->
+        <section id="page-contact" class="page-view active">
+            <div class="section-header">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2 class="section-title">Contact</h2>
+                <p class="section-desc">Interested in discussing network engineering opportunities, lab setups, or potential roles? Reach out!</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Contact Info Cards -->
+                <div class="space-y-6">
+                    <div class="net-card">
+                        <div class="text-sky-400 text-xl mb-2"><i class="fas fa-paper-plane"></i></div>
+                        <h3 class="text-base font-bold text-white mb-1">Direct Email</h3>
+                        <p class="text-slate-400 text-xs mb-3">Send me an email anytime for job opportunities or inquiries.</p>
+                        <a href="mailto:sudo.tarun@proton.me" class="text-cyan-400 font-mono text-sm font-bold hover:underline">
+                            sudo.tarun@proton.me
+                        </a>
+                    </div>
+                    
+                    <div class="net-card">
+                        <div class="text-emerald-400 text-xl mb-2"><i class="fas fa-location-dot"></i></div>
+                        <h3 class="text-base font-bold text-white mb-1">Availability & Location</h3>
+                        <p class="text-slate-300 text-sm">
+                            Available for <strong>Remote</strong> and <strong>On-site / Hybrid</strong> Network Engineering roles.
+                        </p>
+                    </div>
+                    
+                    <div class="net-card font-mono text-xs">
+                        <div class="text-cyan-400 font-bold mb-2 flex items-center justify-between">
+                            <span><i class="fas fa-wifi me-1"></i> Network Latency Diagnostic</span>
+                            <span id="ping-status-text" class="text-emerald-400">RTT 0.042 ms</span>
+                        </div>
+                        <div class="bg-slate-950 p-3 rounded text-slate-400 space-y-1">
+                            <div>PING tarun-murali.me (127.0.0.1): 56 data bytes</div>
+                            <div class="text-slate-300">64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.042 ms</div>
+                            <div class="text-emerald-400">--- tarun-murali.me ping statistics --- 0% packet loss</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="net-card">
+                    <h3 class="text-lg font-bold text-white mb-4">Send a Message</h3>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="contact-name" class="block text-xs font-mono text-slate-400 mb-1">YOUR NAME</label>
+                            <input type="text" id="contact-name" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyan-400" placeholder="e.g. Alex Johnson" required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-email" class="block text-xs font-mono text-slate-400 mb-1">EMAIL ADDRESS</label>
+                            <input type="email" id="contact-email" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyan-400" placeholder="e.g. alex@company.com" required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-subject" class="block text-xs font-mono text-slate-400 mb-1">SUBJECT</label>
+                            <input type="text" id="contact-subject" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyan-400" placeholder="Network Engineering Opportunity..." required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-xs font-mono text-slate-400 mb-1">MESSAGE</label>
+                            <textarea id="contact-message" rows="4" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyan-400" placeholder="Hi Tarun, we have an opening for an entry-level Network Engineer..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i> Transmit Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Built by <strong>Tarun Murali</strong> • Network & Infrastructure Portfolio</p>
+        <p class="footer-status">SYSTEM STATUS :: ETH0 LINK UP (10 Gbps) • BGP SESSION ESTABLISHED</p>
+    </footer>
+
+    <!-- Modular ES6 JavaScript Entry Point -->
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>

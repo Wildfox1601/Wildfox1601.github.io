@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF & Lab Write-ups | Tarun Murali - Network & Systems Engineer</title>
+    <meta name="description" content="Detailed technical writeups of networking labs, Cisco topologies, Wireshark PCAPs, and TryHackMe security rooms.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        netDark: '#080c14',
+                        netCard: '#0f172a',
+                        netCyan: '#06b6d4',
+                        netBlue: '#0ea5e9',
+                        netEmerald: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="bg-[#080c14] text-slate-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-400">
+
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <i class="fas fa-network-wired text-cyan-400"></i>
+                <span>tarun@net-core:~$</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-3">
+                <div class="status-badge me-4">
+                    <span class="pulse-dot"></span>
+                    <span>ETH0 UP | 10 Gbps</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="/" class="nav-item"><i class="fas fa-home me-1"></i> Home</a>
+                    <a href="/projects" class="nav-item"><i class="fas fa-code me-1"></i> Projects</a>
+                    <a href="/writeups" class="nav-item active"><i class="fas fa-file-code me-1"></i> Writeups</a>
+                    <a href="/blog" class="nav-item"><i class="fas fa-newspaper me-1"></i> Blog</a>
+                    <a href="/homelab" class="nav-item"><i class="fas fa-server me-1"></i> Homelab</a>
+                    <a href="/resume" class="nav-item"><i class="fas fa-file-alt me-1"></i> Resume</a>
+                    <a href="/social" class="nav-item"><i class="fas fa-share-alt me-1"></i> Social</a>
+                    <a href="/contact" class="nav-item"><i class="fas fa-envelope me-1"></i> Contact</a>
+                </nav>
+            </div>
+            
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+            <a href="/" class="nav-item"><i class="fas fa-home me-2"></i> Home</a>
+            <a href="/projects" class="nav-item"><i class="fas fa-code me-2"></i> Projects</a>
+            <a href="/writeups" class="nav-item active"><i class="fas fa-file-code me-2"></i> Writeups</a>
+            <a href="/blog" class="nav-item"><i class="fas fa-newspaper me-2"></i> Blog</a>
+            <a href="/homelab" class="nav-item"><i class="fas fa-server me-2"></i> Homelab</a>
+            <a href="/resume" class="nav-item"><i class="fas fa-file-alt me-2"></i> Resume</a>
+            <a href="/social" class="nav-item"><i class="fas fa-share-alt me-2"></i> Social Hub</a>
+            <a href="/contact" class="nav-item"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-6 pt-10">
+        
+        <!-- WRITEUPS SECTION -->
+        <section id="page-writeups" class="page-view active">
+            <div class="section-header">
+                <span class="section-tag">LAB DOCUMENTATION</span>
+                <h2 class="section-title">CTF & Lab Write-ups</h2>
+                <p class="section-desc">Detailed technical writeups of networking labs, Cisco topologies, Wireshark PCAPs, and TryHackMe security rooms.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="filter-bar">
+                    <div class="filter-btn-group" id="writeup-filter-group">
+                        <button class="filter-btn active" data-filter="all">All Writeups</button>
+                        <button class="filter-btn" data-filter="cisco">Cisco Labs</button>
+                        <button class="filter-btn" data-filter="pcap">PCAP Analysis</button>
+                        <button class="filter-btn" data-filter="thm">TryHackMe</button>
+                    </div>
+                    <input type="text" id="writeup-search-input" class="search-input-box" placeholder="Search writeups...">
+                </div>
+                
+                <div id="writeups-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic writeup cards rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modals: Reader Modal -->
+    <div id="reader-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="reader-modal-title" class="text-lg font-bold text-white">Document Title</h3>
+                <button id="reader-modal-close" class="modal-close-btn"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div id="reader-modal-body" class="modal-body text-slate-300 text-sm leading-relaxed space-y-4 font-sans">
+                <!-- Content inserted via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Built by <strong>Tarun Murali</strong> • Network & Infrastructure Portfolio</p>
+        <p class="footer-status">SYSTEM STATUS :: ETH0 LINK UP (10 Gbps) • BGP SESSION ESTABLISHED</p>
+    </footer>
+
+    <!-- Modular ES6 JavaScript Entry Point -->
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>

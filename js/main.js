@@ -3,7 +3,7 @@
  * Master Application Entry Point
  */
 
-import { initRouter, navigateTo } from './router.js';
+import { initRouter } from './router.js';
 import { initCLI } from './cli.js';
 import { initProjectsPage } from './pages/projects.js';
 import { initWriteupsPage } from './pages/writeups.js';
@@ -12,6 +12,7 @@ import { initResumePage } from './pages/resume.js';
 import { initSocialPage } from './pages/social.js';
 import { initHomelabPage } from './pages/homelab.js';
 import { initContactPage } from './pages/contact.js';
+import { initMaintenancePage, initConstructionPage } from './pages/maintenance.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Navigation Router & Maintenance Controller
@@ -61,4 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initSocialPage();
     initHomelabPage();
     initContactPage();
+    initMaintenancePage();
+    initConstructionPage();
 });

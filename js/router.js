@@ -3,20 +3,6 @@
  * Router & Maintenance / Construction State Manager
  */
 
-// Route mapping configuration
-const routeMap = {
-    '/': 'page-home',
-    '/projects': 'page-projects',
-    '/writeups': 'page-writeups',
-    '/blog': 'page-blog',
-    '/resume': 'page-resume',
-    '/social': 'page-social',
-    '/homelab': 'page-homelab',
-    '/contact': 'page-contact',
-    '/maintenance': 'page-maintenance',
-    '/construction': 'page-construction'
-};
-
 /**
  * Page Status Configuration
  * Options per route: 'active' | 'maintenance' | 'construction'
@@ -25,98 +11,136 @@ const routeMap = {
 export const pageStatusConfig = {
     '/': 'active',
     '/projects': 'active',
-    '/writeups': 'active',
-    '/blog': 'maintenance',
+    '/writeups': 'construction',
+    '/blog': 'construction',
     '/resume': 'active',
     '/social': 'active',
-    '/homelab': 'construction',
+    '/homelab': 'maintenance',
     '/contact': 'active',
     '/maintenance': 'active',
     '/construction': 'active'
 };
 
-export function navigateTo(path, pushState = true) {
-    let targetPath = path.toLowerCase();
-    if (targetPath.endsWith('/') && targetPath.length > 1) {
-        targetPath = targetPath.slice(0, -1);
+/**
+ * Normalizes any URL path into a standard route key:
+ * e.g. "/social", "/social/", "/social/index.html", "/repo/social/" -> "/social"
+ */
+export function getNormalizedRoute(pathname) {
+    let path = pathname;
+    if (!path && typeof window !== 'undefined') {
+        path = window.location.pathname;
     }
-    
-    // Determine status of requested route
-    const status = pageStatusConfig[targetPath] || 'active';
-    let targetPageId = routeMap[targetPath] || 'page-home';
+    if (!path) path = '/';
+    path = path.toLowerCase();
 
-    // Redirect to maintenance or construction view if configured
-    if (status === 'maintenance' && targetPath !== '/maintenance') {
-        targetPageId = 'page-maintenance';
-        updateStatusNotice(targetPath, 'maintenance');
-    } else if (status === 'construction' && targetPath !== '/construction') {
-        targetPageId = 'page-construction';
-        updateStatusNotice(targetPath, 'construction');
+    // Strip hostname if a full URL was passed
+    try {
+        if (path.startsWith('http://') || path.startsWith('https://')) {
+            path = new URL(path).pathname.toLowerCase();
+        }
+    } catch (e) {}
+
+    // Remove GitHub Pages repository name prefix (e.g. /wildfox1601.github.io/ or similar)
+    const repoMatch = path.match(/^\/[^\/]+\.github\.io/);
+    if (repoMatch) {
+        path = path.substring(repoMatch[0].length);
     }
 
-    // Hide all pages, show target page
-    document.querySelectorAll('.page-view').forEach(page => {
-        page.classList.remove('active');
+    // Strip index.html or index.htm
+    if (path.endsWith('/index.html') || path.endsWith('/index.htm')) {
+        path = path.substring(0, path.lastIndexOf('/index.htm'));
+    } else if (path === '/index.html' || path === '/index.htm' || path === 'index.html') {
+        path = '/';
+    }
+
+    // Strip trailing slash
+    if (path.endsWith('/') && path.length > 1) {
+        path = path.slice(0, -1);
+    }
+
+    if (!path || path === '') {
+        path = '/';
+    }
+
+    return path;
+}
+
+/**
+ * Gets base path prefix (e.g. "" on custom domain, or "/repo-name" if hosted on a subpath)
+ */
+export function getBasePath() {
+    if (typeof window === 'undefined') return '';
+    const path = window.location.pathname.toLowerCase();
+    const repoMatch = path.match(/^\/[^\/]+\.github\.io/);
+    return repoMatch ? repoMatch[0] : '';
+}
+
+/**
+ * Enforces maintenance or construction redirection if the route is flagged
+ */
+export function checkRouteStatus() {
+    if (typeof window === 'undefined') return false;
+
+    const currentRoute = getNormalizedRoute();
+    const status = pageStatusConfig[currentRoute] || 'active';
+    const basePath = getBasePath();
+
+    if (status === 'maintenance' && currentRoute !== '/maintenance') {
+        window.location.replace(`${basePath}/maintenance/?from=${encodeURIComponent(currentRoute)}`);
+        return true;
+    } else if (status === 'construction' && currentRoute !== '/construction') {
+        window.location.replace(`${basePath}/construction/?from=${encodeURIComponent(currentRoute)}`);
+        return true;
+    }
+    return false;
+}
+
+// Run check immediately on module load if in browser
+if (typeof window !== 'undefined') {
+    checkRouteStatus();
+}
+
+export function initRouter() {
+    if (typeof window === 'undefined') return;
+
+    const currentRoute = getNormalizedRoute();
+    const basePath = getBasePath();
+
+    // Check again when DOM is initialized
+    if (checkRouteStatus()) return;
+
+    // Intercept clicks on links that are configured for maintenance or construction
+    document.body.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#') || link.target === '_blank') {
+            return;
+        }
+
+        const targetRoute = getNormalizedRoute(href);
+        const targetStatus = pageStatusConfig[targetRoute];
+
+        if (targetStatus === 'maintenance' && targetRoute !== '/maintenance') {
+            e.preventDefault();
+            window.location.href = `${basePath}/maintenance/?from=${encodeURIComponent(targetRoute)}`;
+        } else if (targetStatus === 'construction' && targetRoute !== '/construction') {
+            e.preventDefault();
+            window.location.href = `${basePath}/construction/?from=${encodeURIComponent(targetRoute)}`;
+        }
     });
-    const activePage = document.getElementById(targetPageId);
-    if (activePage) {
-        activePage.classList.add('active');
-    }
 
-    // Update active navbar link
+    // Update active nav link based on current path
     document.querySelectorAll('.nav-item').forEach(link => {
-        const linkRoute = link.getAttribute('data-route');
-        if (linkRoute === targetPath) {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) return;
+        
+        const linkRoute = getNormalizedRoute(href);
+        if (linkRoute === currentRoute) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
         }
     });
-
-    // Close mobile drawer
-    const mobileDrawer = document.getElementById('mobile-nav-drawer');
-    if (mobileDrawer) {
-        mobileDrawer.classList.remove('open');
-    }
-
-    // Update URL history
-    if (pushState && window.location.pathname !== targetPath) {
-        history.pushState({ path: targetPath }, '', targetPath);
-    }
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function updateStatusNotice(targetPath, type) {
-    if (type === 'maintenance') {
-        const titleEl = document.getElementById('maintenance-target-name');
-        if (titleEl) {
-            titleEl.textContent = `The ${targetPath} section is currently undergoing scheduled system maintenance.`;
-        }
-    } else if (type === 'construction') {
-        const titleEl = document.getElementById('construction-target-name');
-        if (titleEl) {
-            titleEl.textContent = `The ${targetPath} section is currently under construction and deployment.`;
-        }
-    }
-}
-
-export function initRouter() {
-    // Delegated click event for [data-route] links
-    document.body.addEventListener('click', (e) => {
-        const routeLink = e.target.closest('[data-route]');
-        if (routeLink) {
-            e.preventDefault();
-            const path = routeLink.getAttribute('data-route');
-            navigateTo(path);
-        }
-    });
-
-    // Handle browser back/forward buttons
-    window.addEventListener('popstate', () => {
-        navigateTo(window.location.pathname, false);
-    });
-
-    // Initial routing on page load
-    navigateTo(window.location.pathname, false);
 }

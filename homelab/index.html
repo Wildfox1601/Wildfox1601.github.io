@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homelab & Network Topology | Tarun Murali - Network & Systems Engineer</title>
+    <meta name="description" content="Interactive overview of my home network infrastructure, firewall VLANs, hypervisors, and self-hosted services.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        netDark: '#080c14',
+                        netCard: '#0f172a',
+                        netCyan: '#06b6d4',
+                        netBlue: '#0ea5e9',
+                        netEmerald: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="bg-[#080c14] text-slate-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-400">
+
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <i class="fas fa-network-wired text-cyan-400"></i>
+                <span>tarun@net-core:~$</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-3">
+                <div class="status-badge me-4">
+                    <span class="pulse-dot"></span>
+                    <span>ETH0 UP | 10 Gbps</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="/" class="nav-item"><i class="fas fa-home me-1"></i> Home</a>
+                    <a href="/projects" class="nav-item"><i class="fas fa-code me-1"></i> Projects</a>
+                    <a href="/writeups" class="nav-item"><i class="fas fa-file-code me-1"></i> Writeups</a>
+                    <a href="/blog" class="nav-item"><i class="fas fa-newspaper me-1"></i> Blog</a>
+                    <a href="/homelab" class="nav-item active"><i class="fas fa-server me-1"></i> Homelab</a>
+                    <a href="/resume" class="nav-item"><i class="fas fa-file-alt me-1"></i> Resume</a>
+                    <a href="/social" class="nav-item"><i class="fas fa-share-alt me-1"></i> Social</a>
+                    <a href="/contact" class="nav-item"><i class="fas fa-envelope me-1"></i> Contact</a>
+                </nav>
+            </div>
+            
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+            <a href="/" class="nav-item"><i class="fas fa-home me-2"></i> Home</a>
+            <a href="/projects" class="nav-item"><i class="fas fa-code me-2"></i> Projects</a>
+            <a href="/writeups" class="nav-item"><i class="fas fa-file-code me-2"></i> Writeups</a>
+            <a href="/blog" class="nav-item"><i class="fas fa-newspaper me-2"></i> Blog</a>
+            <a href="/homelab" class="nav-item active"><i class="fas fa-server me-2"></i> Homelab</a>
+            <a href="/resume" class="nav-item"><i class="fas fa-file-alt me-2"></i> Resume</a>
+            <a href="/social" class="nav-item"><i class="fas fa-share-alt me-2"></i> Social Hub</a>
+            <a href="/contact" class="nav-item"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-6 pt-10">
+        
+        <!-- HOMELAB INFRASTRUCTURE SECTION -->
+        <section id="page-homelab" class="page-view active">
+            <div class="section-header">
+                <span class="section-tag">SELF-HOSTED INFRASTRUCTURE</span>
+                <h2 class="section-title">Homelab & Network Topology</h2>
+                <p class="section-desc">Interactive overview of my home network infrastructure, firewall VLANs, hypervisors, and self-hosted services.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="topology-container mb-8">
+                    <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-800">
+                        <div class="flex items-center gap-2 font-mono text-sm text-cyan-400">
+                            <i class="fas fa-sitemap"></i> Network Topology Diagram
+                        </div>
+                        <div class="text-xs font-mono text-slate-400">
+                            <span class="text-emerald-400 font-bold">● ALL SYSTEMS OPERATIONAL</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-400 text-xs mb-4">Click any node below to inspect hardware specs, IP assignments, VLANs, and active services:</p>
+                    
+                    <!-- Topology Grid Nodes -->
+                    <div class="topology-grid">
+                        <div class="node-card" data-node="router">
+                            <span class="node-badge">192.168.1.1</span>
+                            <div class="node-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div class="node-title">OPNsense Firewall</div>
+                            <div class="node-ip">WAN / Gateway / DNS</div>
+                        </div>
+                        
+                        <div class="node-card" data-node="switch">
+                            <span class="node-badge">192.168.1.2</span>
+                            <div class="node-icon"><i class="fas fa-network-wired"></i></div>
+                            <div class="node-title">L2/L3 Core Switch</div>
+                            <div class="node-ip">VLAN 10/20/30/40</div>
+                        </div>
+                        
+                        <div class="node-card" data-node="proxmox">
+                            <span class="node-badge">192.168.1.100</span>
+                            <div class="node-icon"><i class="fas fa-server"></i></div>
+                            <div class="node-title">Proxmox VE Node</div>
+                            <div class="node-ip">Homelab Hypervisor</div>
+                        </div>
+                        
+                        <div class="node-card" data-node="nas">
+                            <span class="node-badge">192.168.1.150</span>
+                            <div class="node-icon"><i class="fas fa-database"></i></div>
+                            <div class="node-title">TrueNAS / Storage</div>
+                            <div class="node-ip">ZFS RAID Pool</div>
+                        </div>
+                        
+                        <div class="node-card" data-node="pihole">
+                            <span class="node-badge">192.168.1.200</span>
+                            <div class="node-icon"><i class="fab fa-raspberry-pi"></i></div>
+                            <div class="node-title">Pi-hole + WireGuard</div>
+                            <div class="node-ip">DNS Sinkhole & VPN</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VLAN Segmentation Table -->
+                <div class="net-card">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-list-ol text-cyan-400"></i> VLAN Segmentation Matrix
+                    </h3>
+                    <div class="overflow-x-auto font-mono text-xs">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-800 text-slate-400">
+                                    <th class="py-2 px-3">VLAN ID</th>
+                                    <th class="py-2 px-3">NAME</th>
+                                    <th class="py-2 px-3">SUBNET</th>
+                                    <th class="py-2 px-3">PURPOSE / DESCRIPTION</th>
+                                    <th class="py-2 px-3">SECURITY POLICY</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                                <tr>
+                                    <td class="py-2 px-3 text-sky-400 font-bold">VLAN 10</td>
+                                    <td class="py-2 px-3">Management</td>
+                                    <td class="py-2 px-3">192.168.10.0/24</td>
+                                    <td class="py-2 px-3">Switch IPMI, Proxmox Web UI, Router Admin</td>
+                                    <td class="py-2 px-3 text-emerald-400">Strict Auth Only</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 text-cyan-400 font-bold">VLAN 20</td>
+                                    <td class="py-2 px-3">Homelab VMs</td>
+                                    <td class="py-2 px-3">192.168.20.0/24</td>
+                                    <td class="py-2 px-3">Docker Containers, Web Apps, Dev Workstations</td>
+                                    <td class="py-2 px-3 text-sky-400">Local LAN Routable</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 text-amber-400 font-bold">VLAN 30</td>
+                                    <td class="py-2 px-3">IoT Isolated</td>
+                                    <td class="py-2 px-3">192.168.30.0/24</td>
+                                    <td class="py-2 px-3">Smart devices, cameras, streaming appliances</td>
+                                    <td class="py-2 px-3 text-amber-400">No WAN / Blocked LAN</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 text-indigo-400 font-bold">VLAN 40</td>
+                                    <td class="py-2 px-3">Guest Network</td>
+                                    <td class="py-2 px-3">192.168.40.0/24</td>
+                                    <td class="py-2 px-3">Visitor Wi-Fi access</td>
+                                    <td class="py-2 px-3 text-red-400">Isolated Internet Only</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modals: Homelab Node Inspector Modal -->
+    <div id="node-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="flex items-center gap-3">
+                    <span id="node-modal-icon" class="text-cyan-400 text-xl"><i class="fas fa-server"></i></span>
+                    <h3 id="node-modal-title" class="text-lg font-bold text-white">Node Details</h3>
+                </div>
+                <button id="node-modal-close" class="modal-close-btn"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div id="node-modal-body" class="modal-body space-y-4 text-sm font-sans">
+                <!-- Node details inserted via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Built by <strong>Tarun Murali</strong> • Network & Infrastructure Portfolio</p>
+        <p class="footer-status">SYSTEM STATUS :: ETH0 LINK UP (10 Gbps) • BGP SESSION ESTABLISHED</p>
+    </footer>
+
+    <!-- Modular ES6 JavaScript Entry Point -->
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>
