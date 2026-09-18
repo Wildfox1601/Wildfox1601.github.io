@@ -5,22 +5,44 @@
 
 export const projectsData = [
     {
+        id: 'linux-server-hardening',
+        title: "Linux Server Monitoring & Hardening Lab",
+        category: "linux",
+        tags: ["Linux CLI", "Ubuntu/Debian", "SSH Hardening", "Systemd", "UFW Firewall", "Cron", "Log Analysis"],
+        description: "Configured Linux virtual machines for service administration and troubleshooting; practiced user and permission management, SSH access, firewall rules, package updates, systemd services, log analysis, scheduled jobs, and basic host hardening.",
+        // ATTACH YOUR GITHUB REPO LINK HERE:
+        github: "https://github.com/Wildfox1601",
+        featured: true
+    },
+    {
+        id: 'enterprise-network-lab',
+        title: "Enterprise Network Troubleshooting Lab",
+        category: "networking",
+        tags: ["Cisco Packet Tracer", "GNS3", "VLANs", "Inter-VLAN Routing", "DHCP", "DNS", "NAT", "Wireshark", "tcpdump"],
+        description: "Built routed and switched topologies in Packet Tracer/GNS3 covering subnetting, VLANs, inter-VLAN routing, DHCP, DNS, NAT, and SSH; used Wireshark, tcpdump, ping, and traceroute to isolate connectivity and configuration issues.",
+        // ATTACH YOUR GITHUB REPO LINK HERE:
+        github: "https://github.com/Wildfox1601",
+        featured: true
+    },
+    {
+        id: 'python-health-check',
+        title: "Python Infrastructure Health-Check Automation",
+        category: "automation",
+        tags: ["Python 3", "Socket", "System Monitoring", "Log Parsing", "Status Reporting", "Automation"],
+        description: "Developed Python scripts to check host reachability and service availability, inspect CPU/memory/disk usage, parse Linux logs, and generate simple status reports for repeatable infrastructure monitoring.",
+        // ATTACH YOUR GITHUB REPO LINK HERE:
+        github: "https://github.com/Wildfox1601/infra-health-check",
+        featured: true
+    },
+    {
         id: 'netpulse',
         title: "NetPulse Traffic & Packet Inspector",
         category: "networking",
         tags: ["Python", "Scapy", "Wireshark CLI", "Socket"],
         description: "A multi-threaded python packet analyzer that captures live network interface packets, parses Ethernet/IP/TCP headers, and detects anomaly traffic spikes.",
-        github: "https://github.com",
-        featured: true
-    },
-    {
-        id: 'cisco-provisioner',
-        title: "Automated Cisco Switch Provisioner",
-        category: "automation",
-        tags: ["Python", "Netmiko", "Jinja2", "Cisco IOS"],
-        description: "Script for automated bulk deployment of VLAN configurations, port security ACLs, and SSH access rules across enterprise Cisco Catalyst switches.",
-        github: "https://github.com",
-        featured: true
+        // ATTACH YOUR GITHUB REPO LINK HERE:
+        github: "https://github.com/Wildfox1601",
+        featured: false
     },
     {
         id: 'wireguard-deployer',
@@ -28,7 +50,8 @@ export const projectsData = [
         category: "linux",
         tags: ["Bash", "WireGuard", "Linux Kernel", "IPTables"],
         description: "Zero-dependency shell script to automate secure peer-to-peer WireGuard VPN mesh tunnels between Ubuntu servers with NAT traversal.",
-        github: "https://github.com",
+        // ATTACH YOUR GITHUB REPO LINK HERE:
+        github: "https://github.com/Wildfox1601",
         featured: false
     },
     {
@@ -37,16 +60,8 @@ export const projectsData = [
         category: "security",
         tags: ["Python", "Scapy", "Signature Engine", "Security"],
         description: "Lightweight rule-based intrusion detection system monitoring live network interfaces for port scans, SYN floods, and brute-force patterns.",
-        github: "https://github.com",
-        featured: false
-    },
-    {
-        id: 'homelab-iac',
-        title: "Homelab Infrastructure as Code",
-        category: "automation",
-        tags: ["Docker Compose", "Cloudflare Tunnels", "OPNsense API"],
-        description: "Version-controlled infrastructure repository containing Docker Compose files, reverse proxy rules, and automated backup schedules for self-hosted homelab.",
-        github: "https://github.com",
+        // ATTACH YOUR GITHUB REPO LINK HERE:
+        github: "https://github.com/Wildfox1601",
         featured: false
     }
 ];
@@ -205,12 +220,15 @@ export const cliCommands = {
   clear              - Wipe terminal output history`,
     
     'cat skills.json': `{
-  "engineer": "Tarun Murali",
-  "focus": "Network Engineering & Security",
-  "networking": ["TCP/IP", "OSPF", "BGP", "VLANs", "CIDR", "Cisco IOS", "WireGuard"],
-  "linux": ["Debian", "Ubuntu Server", "Bash", "Systemd", "NFTables", "SSH"],
-  "tools": ["Wireshark", "Nmap", "Scapy", "Cisco Packet Tracer", "OPNsense"],
-  "status": "Available for Entry-Level Roles"
+  "engineer": "Tarun M (Tarun Murali)",
+  "focus": "Network Engineering & Linux Infrastructure",
+  "networking": ["TCP/IP", "OSI Model", "Subnetting", "VLANs", "Routing", "DHCP", "DNS", "NAT", "SSH", "Wireshark", "tcpdump", "Nmap", "Cisco Packet Tracer", "GNS3"],
+  "linux": ["Ubuntu/Debian", "Bash", "SSH", "systemd", "User/Permissions", "Logs", "Package Mgmt", "Proxmox", "Cron", "Hardening"],
+  "programming": ["Python", "Bash scripting", "C"],
+  "cloud_security": ["AWS (EC2, VPC, IAM)", "Network Security", "Vulnerability Assessment", "IDS/SIEM", "Splunk"],
+  "ai_tools": ["Hermes", "OpenClaw", "LM Studio", "Ollama", "llama.cpp", "Agentic Coding"],
+  "education": "BE CSE @ Agni College of Technology (CGPA: 8.18)",
+  "status": "Open to Entry-Level Network Engineering Roles"
 }`,
     
     'ping 8.8.8.8': `PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
@@ -228,9 +246,12 @@ wg0:  flags=209<UP,POINTOPOINT,RUNNING> mtu 1420 (WireGuard Mesh)
 br0:  flags=4163<UP,BROADCAST,RUNNING> mtu 1500 (VLAN Bridge 10/20)
         inet 192.168.10.1  netmask 255.255.255.0`,
     
-    'uptime': ` 20:35:00 up 42 days, 13 hours, 46 mins,  2 users,  load average: 0.10, 0.07, 0.03`,
+    'uptime': ` 21:05:00 up 45 days, 18 hours, 12 mins,  2 users,  load average: 0.08, 0.05, 0.01`,
     
-    'contact': `Email: sudo.tarun@proton.me
-LinkedIn: https://linkedin.com
-GitHub: https://github.com`
+    'contact': `Name: Tarun M (Tarun Murali)
+Email: tarunmr2005@gmail.com
+Phone: +91-9566293397
+LinkedIn: https://linkedin.com/in/tarun--murali
+GitHub: https://github.com/Wildfox1601
+Portfolio: https://www.tarun-murali.me`
 };
