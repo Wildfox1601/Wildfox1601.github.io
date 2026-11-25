@@ -5,6 +5,34 @@
 
 export const projectsData = [
     {
+        id: 'geist-wifi-sensing',
+        title: "Geist – Wi-Fi Based Activity Recognition & Fall Detection",
+        category: "networking",
+        tags: ["ESP32-S3", "Wi-Fi CSI", "TensorFlow Lite", "MQTT", "Flask-SocketIO", "Flutter"],
+        description: "Built a home monitoring prototype that uses Wi-Fi channel measurements captured by an ESP32-S3 to recognize activity and flag possible falls. A TensorFlow Lite model classifies the measurements, and a Flutter dashboard shows live activity, alerts, and event history.",
+        github: "https://github.com/Wildfox1601/geist-wifi-sensing",
+        featured: true
+    },
+    {
+        id: 'ha-web-infrastructure',
+        title: "High-Availability Web Infrastructure Lab",
+        category: "linux",
+        tags: ["Proxmox VE", "Debian LXC", "HAProxy", "Nginx", "Keepalived", "VRRP", "Prometheus", "Grafana"],
+        description: "Built a Proxmox VE lab with redundant HAProxy load balancers and three Nginx servers in Debian LXC containers. Tested Keepalived VRRP failover and monitored backend health with Prometheus and Grafana.",
+        github: "https://github.com/Wildfox1601/ha-web-infrastructure",
+        featured: true
+    },
+    {
+        id: 'python-health-check',
+        title: "Python Infrastructure Health-Check Automation",
+        category: "automation",
+        tags: ["Python 3", "Socket", "System Monitoring", "Log Parsing", "Status Reporting", "Automation"],
+        description: "Developed Python scripts to check host reachability and service availability, inspect CPU/memory/disk usage, parse Linux logs, and generate simple status reports for repeatable infrastructure monitoring.",
+        // ATTACH YOUR GITHUB REPO LINK HERE:
+        github: "https://github.com/Wildfox1601/infra-health-check",
+        featured: true
+    },
+    {
         id: 'linux-server-hardening',
         title: "Linux Server Monitoring & Hardening Lab",
         category: "linux",
@@ -22,16 +50,6 @@ export const projectsData = [
         description: "Built routed and switched topologies in Packet Tracer/GNS3 covering subnetting, VLANs, inter-VLAN routing, DHCP, DNS, NAT, and SSH; used Wireshark, tcpdump, ping, and traceroute to isolate connectivity and configuration issues.",
         // ATTACH YOUR GITHUB REPO LINK HERE:
         github: "https://github.com/Wildfox1601",
-        featured: true
-    },
-    {
-        id: 'python-health-check',
-        title: "Python Infrastructure Health-Check Automation",
-        category: "automation",
-        tags: ["Python 3", "Socket", "System Monitoring", "Log Parsing", "Status Reporting", "Automation"],
-        description: "Developed Python scripts to check host reachability and service availability, inspect CPU/memory/disk usage, parse Linux logs, and generate simple status reports for repeatable infrastructure monitoring.",
-        // ATTACH YOUR GITHUB REPO LINK HERE:
-        github: "https://github.com/Wildfox1601/infra-health-check",
         featured: true
     },
     {
@@ -250,7 +268,6 @@ br0:  flags=4163<UP,BROADCAST,RUNNING> mtu 1500 (VLAN Bridge 10/20)
     
     'contact': `Name: Tarun M (Tarun Murali)
 Email: tarunmr2005@gmail.com
-Phone: +91-9566293397
 LinkedIn: https://linkedin.com/in/tarun--murali
 GitHub: https://github.com/Wildfox1601
 Portfolio: https://www.tarun-murali.me`
